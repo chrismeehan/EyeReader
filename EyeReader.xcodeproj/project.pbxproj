@@ -21,6 +21,7 @@
 		20C1C34318A57F30007F05D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C1C32518A57F30007F05D7 /* UIKit.framework */; };
 		20C1C34B18A57F30007F05D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20C1C34918A57F30007F05D7 /* InfoPlist.strings */; };
 		20C1C34D18A57F30007F05D7 /* EyeReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C1C34C18A57F30007F05D7 /* EyeReaderTests.m */; };
+		20C1C35818A57FE0007F05D7 /* CFMagicEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C1C35718A57FE0007F05D7 /* CFMagicEvents.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		20C1C34818A57F30007F05D7 /* EyeReaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EyeReaderTests-Info.plist"; sourceTree = "<group>"; };
 		20C1C34A18A57F30007F05D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		20C1C34C18A57F30007F05D7 /* EyeReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EyeReaderTests.m; sourceTree = "<group>"; };
+		20C1C35618A57FE0007F05D7 /* CFMagicEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFMagicEvents.h; sourceTree = "<group>"; };
+		20C1C35718A57FE0007F05D7 /* CFMagicEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFMagicEvents.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				20C1C33318A57F30007F05D7 /* Main.storyboard */,
 				20C1C33618A57F30007F05D7 /* CAMViewController.h */,
 				20C1C33718A57F30007F05D7 /* CAMViewController.m */,
+				20C1C35618A57FE0007F05D7 /* CFMagicEvents.h */,
+				20C1C35718A57FE0007F05D7 /* CFMagicEvents.m */,
 				20C1C33918A57F30007F05D7 /* Images.xcassets */,
 				20C1C32818A57F30007F05D7 /* Supporting Files */,
 			);
@@ -251,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20C1C33818A57F30007F05D7 /* CAMViewController.m in Sources */,
+				20C1C35818A57FE0007F05D7 /* CFMagicEvents.m in Sources */,
 				20C1C33218A57F30007F05D7 /* CAMAppDelegate.m in Sources */,
 				20C1C32E18A57F30007F05D7 /* main.m in Sources */,
 			);
@@ -461,6 +467,7 @@
 				20C1C35218A57F30007F05D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20C1C35318A57F30007F05D7 /* Build configuration list for PBXNativeTarget "EyeReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +476,7 @@
 				20C1C35518A57F30007F05D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
