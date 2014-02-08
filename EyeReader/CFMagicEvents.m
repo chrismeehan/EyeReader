@@ -45,7 +45,13 @@
     BOOL blinkTestIsOn;
     int totalPicturesProcessed;
     int blinkTestCount;
+    int largestTalliedPixel;
+    int pointXOfBrightestBlink;
+    int pointYOfBrightestBlink;
+
     NSString* lastSavedDelta;
+    CGRect firstEyeRect;
+    CGRect secondEyeRect;
     
     NSMutableArray* aMArray;
     int  _lastTotalBrightnessValue;
@@ -66,6 +72,7 @@
     if ((self = [super init])) { [self initMagicEvents];}
     aMArray = [[NSMutableArray alloc]init];
     setFirstArray = NO;
+    largestTalliedPixel = 0;
     setSecondArray = NO;
     highestDifference = 0;
     lowestDifference = 0;
@@ -210,18 +217,16 @@
                                 // Divide by 3 to average the 3 rgb sums back to a 0-255 num.
             int diffHolder = differenceOf2ndComparedTo1stArray[rowCount][columnCount/4]/3;
 
+            int zeroTo255 = 128+diffHolder/2;
             
-            // If the square got brighter.
-         //   Start it at 128 because grey is neutral
-                int zeroTo255 = 128+diffHolder/2;
                 pixelData[offset] =  zeroTo255;
                 pixelData[offset + 1] = zeroTo255;
                 pixelData[offset + 2] = zeroTo255;
                 pixelData[offset+3] = 255;
-            offset = offset+4;
+                offset = offset+4;
+            
         }
     }
-
     // Done.
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef gtx = CGBitmapContextCreate(pixelData, width, height, 8, width*4, colorSpace, kCGImageAlphaPremultipliedLast);
@@ -241,10 +246,15 @@
         for (int columnCount = 0 ; columnCount<width*4; columnCount = columnCount+4){
 
             int talliedPosDiffHolder = tallyOfPositiveDeltaBlinksArray[rowCount][columnCount/4];
-            // This int could be from 0 to (255*20 frames analyzed) 5100
-            // We will divide by 20 because thats the ratio of 5100 / 256
-            int zeroTo255 = talliedPosDiffHolder;
-      //      NSLog(@"this zero to 255 is %d" , zeroTo255);
+
+            // talliedPosDiffHol can be more than 600, so we need to divide it down some.
+            int zeroTo255 = talliedPosDiffHolder/4;
+     
+            if(largestTalliedPixel < zeroTo255){
+                largestTalliedPixel = zeroTo255;
+                pointXOfBrightestBlink = rowCount;
+                pointYOfBrightestBlink = columnCount;
+            }
             pixelData[offset] =  zeroTo255;
             pixelData[offset + 1] = zeroTo255;
             pixelData[offset + 2] = zeroTo255;
@@ -253,11 +263,92 @@
         }
     }
     
+    
+// firstEyeRect =  [self getAnEyeRectFromCGPointOfBrightestBlink];
+    
+    // There, we now know the x and y of the brightest blink pixel.
+    
+    // 1) Send an army to search the surrounding pixels and come to an agreement of its rect.
+    
+        // Do that by spiraling outward, accepting only those wish 1/2 your brighness or brighter, while saving your
+        // furthest left and right colmuns that had at least 1 pixel meeting the requirement. (and your top and bottom rows).
+    
+        // Once you completed a circle without finding 1 canidate, then create a CGRect with those 4 values youve been saving.
+    
+        // Print it out.
+    
+    
+    
+    NSLog(@"largest tallied pixel was %d" , largestTalliedPixel);
     // Done.
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef gtx = CGBitmapContextCreate(pixelData, width, height, 8, width*4, colorSpace, kCGImageAlphaPremultipliedLast);
     CGImageRef toCGImage = CGBitmapContextCreateImage(gtx);
     return [[UIImage alloc] initWithCGImage:toCGImage];
+}
+
+// We will wrap the brightest pixel, in a counter-clockwise fashion, until there are no more bright neighbors found.
+-(CGRect)getAnEyeRectFromCGPointOfBrightestBlink{
+    int xValue = pointXOfBrightestBlink;
+    int yValue = pointYOfBrightestBlink;
+    
+    int currentX = pointXOfBrightestBlink;
+    int currentY = pointYOfBrightestBlink;
+    
+    // Rows and columns that have at least one bright one.
+    int largestFoundX = pointXOfBrightestBlink;
+    int smallestFoundX = pointXOfBrightestBlink;
+    int largestFoundY = pointYOfBrightestBlink;
+    int smallestFoundY = pointYOfBrightestBlink;
+    // Current perimeter rows and columns that have been checked alreay
+    int largestXChecked = pointXOfBrightestBlink;
+    int smallestXChecked = pointXOfBrightestBlink;
+    int largestYChecked = pointYOfBrightestBlink;
+    int smallestYChecked = pointYOfBrightestBlink;
+
+    
+    int overallBrightest = tallyOfPositiveDeltaBlinksArray[yValue][xValue];
+    // brightnessLevelOfTolerance can be more than 600, so we need to divide it down some.
+
+    // Divide by 4, because we did to find this brightness winner. Then divide THAT by 2, to find a suitable tolerance level.
+    int zeroTo255ishTolerance = (overallBrightest/4)/2;
+
+    // Let's start by checking the pixel to the right as our first move.
+    //If yes, then this pixel is suitable, save it as the furthest you found to the right, and lets move up.
+    if(tallyOfPositiveDeltaBlinksArray[yValue][xValue+1] >= zeroTo255ishTolerance){
+        largestFoundX = xValue+1;
+        
+    }
+    // Otherwise, this pixel isnt very bright, we will ignore it
+    else{
+        
+    }
+    
+
+    // While this is true, we move up one and check it out.
+    while(currentY<=largestYChecked){
+        if(tallyOfPositiveDeltaBlinksArray[currentY][currentX] >= zeroTo255ishTolerance){
+            largestFoundY = currentY;
+        }
+        // Otherwise we ignore it.
+        else{
+            
+        }
+        currentY++;
+    }
+    
+    // If were here, then we must have reached a new high row weve never reached before, lets go left after this runthrough.
+    while(smallestXChecked<=currentX){
+        if(tallyOfPositiveDeltaBlinksArray[currentY][currentX] >= zeroTo255ishTolerance){
+            largestFoundY = currentY; // Set the highest Y.
+        }
+        // Otherwise we ignore it.
+        else{
+            
+        }
+        currentY++;
+    }
+    return CGRectMake(0,0,0,0);
 }
 
 #pragma mark - Delegate

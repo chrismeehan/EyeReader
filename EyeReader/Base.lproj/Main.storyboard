@@ -25,8 +25,8 @@
                                     <constraint firstAttribute="width" constant="192" id="ety-Vf-A7s"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zse-46-n47">
-                                <rect key="frame" x="302" y="20" width="112" height="106"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zse-46-n47">
+                                <rect key="frame" x="259" y="20" width="112" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="112" id="7UG-nw-zqK"/>
@@ -40,7 +40,7 @@
                                     <action selector="pic1:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="e6N-IU-JWP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkQ-sm-mr8">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkQ-sm-mr8">
                                 <rect key="frame" x="430" y="26" width="118" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -55,12 +55,12 @@
                                     <action selector="pic2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uqg-c0-frq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlv-ay-zlz">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlv-ay-zlz">
                                 <rect key="frame" x="394" y="98" width="132" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="ATG-3c-91z"/>
-                                    <constraint firstAttribute="width" constant="96" id="VaS-rM-pS1"/>
+                                    <constraint firstAttribute="width" constant="132" id="VaS-rM-pS1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="show button">
@@ -70,32 +70,33 @@
                                     <action selector="lastDelta:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="m4C-dh-gGU"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foq-8Y-vpc">
-                                <rect key="frame" x="199" y="185" width="318" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hit record, and blink rapidly fast for abount 3 seonds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foq-8Y-vpc">
+                                <rect key="frame" x="124" y="189" width="404" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="318" id="dv8-dE-kKx"/>
+                                    <constraint firstAttribute="width" constant="404" id="dv8-dE-kKx"/>
                                     <constraint firstAttribute="height" constant="21" id="knh-PK-yWd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yC-NC-AKv">
-                                <rect key="frame" x="425" y="267" width="128" height="47"/>
+                                <rect key="frame" x="262" y="213" width="128" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="AaR-cY-7ly"/>
                                     <constraint firstAttribute="height" constant="47" id="XjJ-dm-bU8"/>
                                 </constraints>
-                                <state key="normal" title="record in 1 second">
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="record">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="blinkGo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="X6s-mM-KsF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold your head very still, and blink a bunch in 1 second." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="248" translatesAutoresizingMaskIntoConstraints="NO" id="DuQ-r9-NsE">
-                                <rect key="frame" x="234" y="223" width="248" height="50"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep you head, and the phone steady." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="248" translatesAutoresizingMaskIntoConstraints="NO" id="DuQ-r9-NsE">
+                                <rect key="frame" x="300" y="76" width="248" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="4t9-KR-jVC"/>
@@ -105,13 +106,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8F-Jy-bqU">
-                                <rect key="frame" x="172" y="275" width="146" height="30"/>
+                                <rect key="frame" x="402" y="268" width="146" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Nd9-mf-ua4"/>
                                     <constraint firstAttribute="width" constant="146" id="ZlK-gj-5AL"/>
                                 </constraints>
-                                <state key="normal" title="Show total blink tally">
+                                <state key="normal" title="Show bright eyes">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -121,22 +122,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="8yC-NC-AKv" secondAttribute="trailing" constant="15" id="1nW-2F-fEs"/>
-                            <constraint firstItem="GOx-0X-0bk" firstAttribute="top" secondItem="DuQ-r9-NsE" secondAttribute="bottom" constant="47" id="BVM-wB-HEU"/>
-                            <constraint firstAttribute="trailing" secondItem="DuQ-r9-NsE" secondAttribute="trailing" constant="86" id="Dbf-Ue-gBm"/>
+                            <constraint firstAttribute="trailing" secondItem="8yC-NC-AKv" secondAttribute="trailing" constant="178" id="1nW-2F-fEs"/>
+                            <constraint firstItem="GOx-0X-0bk" firstAttribute="top" secondItem="DuQ-r9-NsE" secondAttribute="bottom" constant="194" id="BVM-wB-HEU"/>
+                            <constraint firstAttribute="trailing" secondItem="DuQ-r9-NsE" secondAttribute="trailing" constant="20" id="Dbf-Ue-gBm"/>
                             <constraint firstItem="zse-46-n47" firstAttribute="top" secondItem="616-ud-a0K" secondAttribute="bottom" id="FUu-LA-uV9"/>
                             <constraint firstItem="C0g-hE-MVE" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="OYj-JZ-opq"/>
                             <constraint firstItem="SkQ-sm-mr8" firstAttribute="top" secondItem="616-ud-a0K" secondAttribute="bottom" constant="6" id="RzF-6e-tzN"/>
                             <constraint firstAttribute="trailing" secondItem="Qlv-ay-zlz" secondAttribute="trailing" constant="42" id="Tmc-sa-xtH"/>
                             <constraint firstAttribute="trailing" secondItem="SkQ-sm-mr8" secondAttribute="trailing" constant="20" id="Ty6-s9-qeQ"/>
-                            <constraint firstAttribute="trailing" secondItem="foq-8Y-vpc" secondAttribute="trailing" constant="51" id="bWm-Hg-uYd"/>
-                            <constraint firstItem="GOx-0X-0bk" firstAttribute="top" secondItem="8yC-NC-AKv" secondAttribute="bottom" constant="6" id="bXw-gg-DCH"/>
-                            <constraint firstItem="foq-8Y-vpc" firstAttribute="top" secondItem="Qlv-ay-zlz" secondAttribute="bottom" constant="20" id="feO-AV-qlb"/>
-                            <constraint firstItem="GOx-0X-0bk" firstAttribute="top" secondItem="f8F-Jy-bqU" secondAttribute="bottom" constant="15" id="j5L-xp-b8l"/>
+                            <constraint firstAttribute="trailing" secondItem="f8F-Jy-bqU" secondAttribute="trailing" constant="20" id="Vvc-m5-bz9"/>
+                            <constraint firstAttribute="trailing" secondItem="foq-8Y-vpc" secondAttribute="trailing" constant="40" id="bWm-Hg-uYd"/>
+                            <constraint firstItem="GOx-0X-0bk" firstAttribute="top" secondItem="8yC-NC-AKv" secondAttribute="bottom" constant="60" id="bXw-gg-DCH"/>
+                            <constraint firstItem="foq-8Y-vpc" firstAttribute="top" secondItem="Qlv-ay-zlz" secondAttribute="bottom" constant="24" id="feO-AV-qlb"/>
+                            <constraint firstItem="GOx-0X-0bk" firstAttribute="top" secondItem="f8F-Jy-bqU" secondAttribute="bottom" constant="22" id="j5L-xp-b8l"/>
                             <constraint firstItem="Qlv-ay-zlz" firstAttribute="top" secondItem="616-ud-a0K" secondAttribute="bottom" constant="78" id="jCS-vV-o2C"/>
-                            <constraint firstItem="zse-46-n47" firstAttribute="centerX" secondItem="foq-8Y-vpc" secondAttribute="centerX" id="rmb-Aj-ZyR"/>
+                            <constraint firstItem="zse-46-n47" firstAttribute="centerX" secondItem="foq-8Y-vpc" secondAttribute="centerX" constant="-11" id="rmb-Aj-ZyR"/>
                             <constraint firstItem="C0g-hE-MVE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="se2-7j-WlM"/>
-                            <constraint firstItem="f8F-Jy-bqU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="172" id="xMa-n1-CU5"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
